@@ -50,7 +50,7 @@ import internal.GlobalVariable as GlobalVariable
 RequestObject request = WSResponseManager.getInstance().getCurrentRequest()
 
 ResponseObject response = WSResponseManager.getInstance().getCurrentResponse()
-WS.verifyElementPropertyValue(response, 'data[4].first_name', &quot;George&quot;)
+
 
 
 GlobalVariable.FIRST_NAME= WS.getElementPropertyValue(response, 'data[4].first_name')

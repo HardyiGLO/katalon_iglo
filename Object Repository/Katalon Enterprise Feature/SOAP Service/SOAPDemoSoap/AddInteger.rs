@@ -60,6 +60,15 @@ import internal.GlobalVariable as GlobalVariable
 
 RequestObject request = WSResponseManager.getInstance().getCurrentRequest()
 
-ResponseObject response = WSResponseManager.getInstance().getCurrentResponse()</verificationScript>
+ResponseObject response = WSResponseManager.getInstance().getCurrentResponse()
+
+
+GlobalVariable.FIRST_NUM = WS.getElementPropertyValue(response, 'AddIntegerResponse.AddIntegerResult')
+
+System.out.println(GlobalVariable.FIRST_NUM)
+
+
+
+</verificationScript>
    <wsdlAddress>https://www.crcind.com/csp/samples/SOAP.Demo.CLS?WSDL=1</wsdlAddress>
 </WebServiceRequestEntity>
