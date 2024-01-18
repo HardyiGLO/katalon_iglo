@@ -17,14 +17,7 @@ import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
 
-WS.sendRequest(findTestObject('Katalon Enterprise Feature/Feature KSE-GET, POST, PUT, DELETE/ListUser'))
+WS.sendRequestAndVerify(findTestObject('API iGlo/Postman/WMConnect'))
 
-def response = WS.sendRequestAndVerify(findTestObject('Katalon Enterprise Feature/Feature KSE-GET, POST, PUT, DELETE/ListUser'))
+WS.sendRequestAndVerify(findTestObject('API iGlo/Postman/WFUploadWorkItem', [('var1') : GlobalVariable.SSID]))
 
-WS.verifyElementPropertyValue(response, 'data[4].first_name', 'George')
-
-WS.verifyElementsCount(response, 'data', 6)
-
-WS.verifyResponseStatusCode(response, 200)
-
-WS.verifyResponseStatusCodeInRange(response, 200, 204)

@@ -28,3 +28,4 @@ WS.verifyElementsCount(response, 'data', 6)
 WS.verifyResponseStatusCode(response, 200)
 
 WS.verifyResponseStatusCodeInRange(response, 200, 204)
+

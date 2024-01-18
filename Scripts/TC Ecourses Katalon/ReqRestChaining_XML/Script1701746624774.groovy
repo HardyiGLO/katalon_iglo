@@ -17,14 +17,20 @@ import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
 
-WS.sendRequest(findTestObject('Katalon Enterprise Feature/Feature KSE-GET, POST, PUT, DELETE/ListUser'))
+var1 = WS.sendRequestAndVerify(findTestObject(null))
 
-def response = WS.sendRequestAndVerify(findTestObject('Katalon Enterprise Feature/Feature KSE-GET, POST, PUT, DELETE/ListUser'))
+def xmlbody = var1.responseBodyContent
 
-WS.verifyElementPropertyValue(response, 'data[4].first_name', 'George')
+def value = new XmlSlurper().parseText(xmlbody)
 
-WS.verifyElementsCount(response, 'data', 6)
+//Cetak hasil uraian data dr api///
+System.out.printIn(value)
 
-WS.verifyResponseStatusCode(response, 200)
+//Put hasil dr uraian data dr variabel varValue ke GlobalVariable//
+GlobalVariable.FIRST_NUM = value
 
-WS.verifyResponseStatusCodeInRange(response, 200, 204)
+//Cetak nilai dr global variable
+System.out.printIn(GlobalVariable.FIRST_NUM)
+
+WS.sendRequestAndVerify(findTestObject('Katalon Enterprise Feature/SOAP Service/SOAPDemoSoap/DivideInteger', [('vnum') : GlobalVariable.FIRST_NUM]))
+

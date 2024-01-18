@@ -14,4 +14,14 @@
       <initValue>''</initValue>
       <name>FIRST_NUM</name>
    </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>'fiona'</initValue>
+      <name>usr_login</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>'zQe9Rk4qqvzs3Xyz'</initValue>
+      <name>pass</name>
+   </GlobalVariableEntity>
 </GlobalVariableEntities>

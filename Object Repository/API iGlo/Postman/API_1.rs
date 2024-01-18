@@ -1,34 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebServiceRequestEntity>
    <description></description>
-   <name>UpdateUser</name>
+   <name>API_1</name>
    <tag></tag>
-   <elementGuidId>c21f18db-5b52-4661-ab4b-b50e6d60f1a3</elementGuidId>
+   <elementGuidId>a99e14b4-821f-436b-9813-11c8731060ae</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
-   <autoUpdateContent>false</autoUpdateContent>
+   <autoUpdateContent>true</autoUpdateContent>
    <connectionTimeout>0</connectionTimeout>
-   <followRedirects>true</followRedirects>
+   <followRedirects>false</followRedirects>
    <httpBody></httpBody>
-   <httpBodyContent>{
-  &quot;text&quot;: &quot;{\n    \&quot;name\&quot;: \&quot;${FName}\&quot;,\n    \&quot;job\&quot;: \&quot;HRD\&quot;\n}&quot;,
-  &quot;contentType&quot;: &quot;application/json&quot;,
-  &quot;charset&quot;: &quot;UTF-8&quot;
-}</httpBodyContent>
-   <httpBodyType>text</httpBodyType>
+   <httpBodyContent></httpBodyContent>
+   <httpBodyType></httpBodyType>
    <httpHeaderProperties>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
-      <name>Content-Type</name>
+      <name>Password</name>
       <type>Main</type>
-      <value>application/json</value>
-      <webElementGuid>a26483be-4e29-48a3-b7ff-2e1dd8e54254</webElementGuid>
+      <value>system123#</value>
+      <webElementGuid>a1f20838-1b9a-4930-98e4-495036a0d051</webElementGuid>
    </httpHeaderProperties>
-   <katalonVersion>9.0.0</katalonVersion>
+   <katalonVersion>9.1.0</katalonVersion>
    <maxResponseSize>0</maxResponseSize>
    <migratedVersion>5.4.1</migratedVersion>
-   <restRequestMethod>PUT</restRequestMethod>
-   <restUrl>https://reqres.in/api/users/2</restUrl>
+   <restRequestMethod>POST</restRequestMethod>
+   <restUrl>http://34.143.236.26:8080/iBPSRestFulWebServices/ibps/Restful/newone/WMConnect?userName=PBPBDG_0009&amp;locale=en_US&amp;UserExist=N</restUrl>
    <serviceType>RESTful</serviceType>
    <soapBody></soapBody>
    <soapHeader></soapHeader>
@@ -37,13 +33,6 @@
    <soapServiceFunction></soapServiceFunction>
    <socketTimeout>0</socketTimeout>
    <useServiceInfoFromWsdl>true</useServiceInfoFromWsdl>
-   <variables>
-      <defaultValue>GlobalVariable.FIRST_NAME</defaultValue>
-      <description></description>
-      <id>f9dacece-cb57-4ccf-9eab-fe80f4f2295d</id>
-      <masked>false</masked>
-      <name>FName</name>
-   </variables>
    <verificationScript>import static org.assertj.core.api.Assertions.*
 
 import com.kms.katalon.core.testobject.RequestObject
@@ -56,14 +45,6 @@ import internal.GlobalVariable as GlobalVariable
 
 RequestObject request = WSResponseManager.getInstance().getCurrentRequest()
 
-ResponseObject response = WSResponseManager.getInstance().getCurrentResponse()
-WS.verifyElementPropertyValue(response, 'name',GlobalVariable.FIRST_NAME)
-
-
-System.out.println (GlobalVariable.FIRST_NAME)
-
-
-
-</verificationScript>
+ResponseObject response = WSResponseManager.getInstance().getCurrentResponse()</verificationScript>
    <wsdlAddress></wsdlAddress>
 </WebServiceRequestEntity>

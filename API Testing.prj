@@ -4,7 +4,7 @@
    <name>API Testing</name>
    <tag></tag>
    <UUID>ed192a63-f1e0-4f66-8e05-4d4838efb9ae</UUID>
-   <freeLicense>true</freeLicense>
+   <freeLicense>false</freeLicense>
    <migratedVersion>5.9.0</migratedVersion>
    <pageLoadTimeout>0</pageLoadTimeout>
    <projectFileLocation>C:\Users\1878\OneDrive\Desktop\List API\Katalon Studio\API Testing\API Testing.prj</projectFileLocation>

@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebServiceRequestEntity>
    <description></description>
-   <name>UpdateUser</name>
+   <name>Using Token</name>
    <tag></tag>
-   <elementGuidId>c21f18db-5b52-4661-ab4b-b50e6d60f1a3</elementGuidId>
+   <elementGuidId>5df7e56f-024d-4039-ba72-62b2cd08a10a</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <autoUpdateContent>false</autoUpdateContent>
    <connectionTimeout>0</connectionTimeout>
-   <followRedirects>true</followRedirects>
+   <followRedirects>false</followRedirects>
    <httpBody></httpBody>
    <httpBodyContent>{
-  &quot;text&quot;: &quot;{\n    \&quot;name\&quot;: \&quot;${FName}\&quot;,\n    \&quot;job\&quot;: \&quot;HRD\&quot;\n}&quot;,
-  &quot;contentType&quot;: &quot;application/json&quot;,
+  &quot;text&quot;: &quot;{\n    \&quot;userId\&quot;: \&quot;${userId}\&quot;,\n    \&quot;password\&quot;: \&quot;${password}\&quot;\n}\n&quot;,
+  &quot;contentType&quot;: &quot;text/plain&quot;,
   &quot;charset&quot;: &quot;UTF-8&quot;
 }</httpBodyContent>
    <httpBodyType>text</httpBodyType>
@@ -21,14 +21,14 @@
       <matchCondition>equals</matchCondition>
       <name>Content-Type</name>
       <type>Main</type>
-      <value>application/json</value>
-      <webElementGuid>a26483be-4e29-48a3-b7ff-2e1dd8e54254</webElementGuid>
+      <value>text/plain</value>
+      <webElementGuid>ba282ba7-b66c-4896-975a-e3f22ece250c</webElementGuid>
    </httpHeaderProperties>
-   <katalonVersion>9.0.0</katalonVersion>
+   <katalonVersion>9.1.0</katalonVersion>
    <maxResponseSize>0</maxResponseSize>
    <migratedVersion>5.4.1</migratedVersion>
-   <restRequestMethod>PUT</restRequestMethod>
-   <restUrl>https://reqres.in/api/users/2</restUrl>
+   <restRequestMethod>POST</restRequestMethod>
+   <restUrl>https://fifada-qa-lb01.fifgroup.co.id/backend/user/login</restUrl>
    <serviceType>RESTful</serviceType>
    <soapBody></soapBody>
    <soapHeader></soapHeader>
@@ -38,13 +38,22 @@
    <socketTimeout>0</socketTimeout>
    <useServiceInfoFromWsdl>true</useServiceInfoFromWsdl>
    <variables>
-      <defaultValue>GlobalVariable.FIRST_NAME</defaultValue>
+      <defaultValue>GlobalVariable.usr_login</defaultValue>
       <description></description>
-      <id>f9dacece-cb57-4ccf-9eab-fe80f4f2295d</id>
+      <id>750727e5-5602-4085-8f2a-0a323e1bb54e</id>
       <masked>false</masked>
-      <name>FName</name>
+      <name>userId</name>
+   </variables>
+   <variables>
+      <defaultValue>GlobalVariable.pass</defaultValue>
+      <description></description>
+      <id>5284cd1e-f540-4059-a904-5b4549f3c823</id>
+      <masked>false</masked>
+      <name>password</name>
    </variables>
    <verificationScript>import static org.assertj.core.api.Assertions.*
+
+import java.nio.file.WatchService
 
 import com.kms.katalon.core.testobject.RequestObject
 import com.kms.katalon.core.testobject.ResponseObject
@@ -54,15 +63,10 @@ import com.kms.katalon.core.webservice.verification.WSResponseManager
 import groovy.json.JsonSlurper
 import internal.GlobalVariable as GlobalVariable
 
-RequestObject request = WSResponseManager.getInstance().getCurrentRequest()
 
-ResponseObject response = WSResponseManager.getInstance().getCurrentResponse()
-WS.verifyElementPropertyValue(response, 'name',GlobalVariable.FIRST_NAME)
-
-
-System.out.println (GlobalVariable.FIRST_NAME)
-
-
+//WS.verifyElementPropertyValue(response, 'result.accessToken')
+response = WS.getElementPropertyValue('result.accessToken')
+System.println(response)
 
 </verificationScript>
    <wsdlAddress></wsdlAddress>

@@ -17,7 +17,15 @@ import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
 
-WS.sendRequestAndVerify(findTestObject('Katalon Enterprise Feature/Feature KSE-GET, POST, PUT, DELETE/ListUser'))
+vname = WS.sendRequestAndVerify(findTestObject('Katalon Enterprise Feature/Feature KSE-GET, POST, PUT, DELETE/ListUser'))
+
+def slurper = new groovy.json.JsonSlurper()
+
+def result = slurper.parseText(vname.getResponseBodyContent())
+
+def value = result.data[5].first_name
+
+GlobalVariable.FIRST_NAME = value
 
 WS.sendRequestAndVerify(findTestObject('Katalon Enterprise Feature/Feature KSE-GET, POST, PUT, DELETE/UpdateUser', [('FName') : GlobalVariable.FIRST_NAME]))
 
