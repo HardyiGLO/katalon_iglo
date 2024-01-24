@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebServiceRequestEntity>
    <description></description>
-   <name>ListUser</name>
+   <name>Basic Auth</name>
    <tag></tag>
-   <elementGuidId>d909bc54-0bf8-412b-95d9-dbe38abeda8b</elementGuidId>
+   <elementGuidId>c588d3c2-c9d4-4eca-8375-13495d12eb56</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <autoUpdateContent>true</autoUpdateContent>
@@ -12,23 +12,23 @@
    <httpBody></httpBody>
    <httpBodyContent>{
   &quot;text&quot;: &quot;&quot;,
-  &quot;contentType&quot;: &quot;application/json&quot;,
+  &quot;contentType&quot;: &quot;text/plain&quot;,
   &quot;charset&quot;: &quot;UTF-8&quot;
 }</httpBodyContent>
    <httpBodyType>text</httpBodyType>
    <httpHeaderProperties>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
-      <name>Content-Type</name>
+      <name>Authorization</name>
       <type>Main</type>
-      <value>application/json</value>
-      <webElementGuid>3ee91953-18bf-405a-b036-c6d3fe95da13</webElementGuid>
+      <value>Basic dXNlcjE6cGFzc3dvcmQx</value>
+      <webElementGuid>f1af535d-d46b-46d8-afc8-307b33da3f8f</webElementGuid>
    </httpHeaderProperties>
-   <katalonVersion>9.0.0</katalonVersion>
+   <katalonVersion>9.1.0</katalonVersion>
    <maxResponseSize>0</maxResponseSize>
    <migratedVersion>5.4.1</migratedVersion>
    <restRequestMethod>GET</restRequestMethod>
-   <restUrl>https://reqres.in//api/users?page=2</restUrl>
+   <restUrl>https://api.github.com/users/octocat</restUrl>
    <serviceType>RESTful</serviceType>
    <soapBody></soapBody>
    <soapHeader></soapHeader>
@@ -49,16 +49,6 @@ import internal.GlobalVariable as GlobalVariable
 
 RequestObject request = WSResponseManager.getInstance().getCurrentRequest()
 
-ResponseObject response = WSResponseManager.getInstance().getCurrentResponse()
-
-
-
-GlobalVariable.FIRST_NAME= WS.getElementPropertyValue(response, 'data[4].first_name')
-System.out.println (GlobalVariable.FIRST_NAME)
-
-
-
-
-</verificationScript>
+ResponseObject response = WSResponseManager.getInstance().getCurrentResponse()</verificationScript>
    <wsdlAddress></wsdlAddress>
 </WebServiceRequestEntity>

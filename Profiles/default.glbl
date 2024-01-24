@@ -24,4 +24,24 @@
       <initValue>'zQe9Rk4qqvzs3Xyz'</initValue>
       <name>pass</name>
    </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>''</initValue>
+      <name>token1</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>''</initValue>
+      <name>getdrafid</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>''</initValue>
+      <name>Get_id</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>''</initValue>
+      <name>SOAP_Total</name>
+   </GlobalVariableEntity>
 </GlobalVariableEntities>

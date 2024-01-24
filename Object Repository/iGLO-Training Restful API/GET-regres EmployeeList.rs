@@ -1,34 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebServiceRequestEntity>
    <description></description>
-   <name>ListUser</name>
+   <name>GET-regres EmployeeList</name>
    <tag></tag>
-   <elementGuidId>d909bc54-0bf8-412b-95d9-dbe38abeda8b</elementGuidId>
+   <elementGuidId>cb0d9e19-f57c-44ed-93ec-fced0d6d2f46</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <autoUpdateContent>true</autoUpdateContent>
    <connectionTimeout>0</connectionTimeout>
    <followRedirects>false</followRedirects>
    <httpBody></httpBody>
-   <httpBodyContent>{
-  &quot;text&quot;: &quot;&quot;,
-  &quot;contentType&quot;: &quot;application/json&quot;,
-  &quot;charset&quot;: &quot;UTF-8&quot;
-}</httpBodyContent>
-   <httpBodyType>text</httpBodyType>
-   <httpHeaderProperties>
-      <isSelected>true</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>Content-Type</name>
-      <type>Main</type>
-      <value>application/json</value>
-      <webElementGuid>3ee91953-18bf-405a-b036-c6d3fe95da13</webElementGuid>
-   </httpHeaderProperties>
-   <katalonVersion>9.0.0</katalonVersion>
+   <httpBodyContent></httpBodyContent>
+   <httpBodyType></httpBodyType>
+   <katalonVersion>9.1.0</katalonVersion>
    <maxResponseSize>0</maxResponseSize>
    <migratedVersion>5.4.1</migratedVersion>
    <restRequestMethod>GET</restRequestMethod>
-   <restUrl>https://reqres.in//api/users?page=2</restUrl>
+   <restUrl>https://reqres.in/api/users?page=2</restUrl>
    <serviceType>RESTful</serviceType>
    <soapBody></soapBody>
    <soapHeader></soapHeader>
@@ -37,6 +25,13 @@
    <soapServiceFunction></soapServiceFunction>
    <socketTimeout>0</socketTimeout>
    <useServiceInfoFromWsdl>true</useServiceInfoFromWsdl>
+   <variables>
+      <defaultValue>''</defaultValue>
+      <description></description>
+      <id>dd98267a-141a-43e7-9f6a-6e4f997f60af</id>
+      <masked>false</masked>
+      <name>var1</name>
+   </variables>
    <verificationScript>import static org.assertj.core.api.Assertions.*
 
 import com.kms.katalon.core.testobject.RequestObject
@@ -51,14 +46,10 @@ RequestObject request = WSResponseManager.getInstance().getCurrentRequest()
 
 ResponseObject response = WSResponseManager.getInstance().getCurrentResponse()
 
+var1 = WS.getElementPropertyValue(response, 'data[4].email')
+System.out.println (var1)
 
-
-GlobalVariable.FIRST_NAME= WS.getElementPropertyValue(response, 'data[4].first_name')
-System.out.println (GlobalVariable.FIRST_NAME)
-
-
-
-
+	
 </verificationScript>
    <wsdlAddress></wsdlAddress>
 </WebServiceRequestEntity>
